@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stoic Quote Widget</title>
+  <style>
+    body {
+      background-color: #f4f1e9; /* Light parchment-like background */
+      font-family: 'Georgia', serif;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .widget {
+      background-color: #fff;
+      border: 2px solid #ccc;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .quote {
+      font-style: italic;
+      font-size: 18px;
+      color: #333;
+    }
+    .author {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #555;
+    }
+    .new-quote {
+      margin-top: 20px;
+      padding: 8px 12px;
+      border: none;
+      background-color: #e0cda9;
+      color: #333;
+      cursor: pointer;
+      font-family: 'Georgia', serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget">
+    <div class="quote" id="quote"></div>
+    <div class="author" id="author"></div>
+    <button class="new-quote" onclick="newQuote()">New Quote</button>
+  </div>
+
+  <script>
+    const quotes = [
+      {
+        quote: "You have power over your mind - not outside events. Realize this, and you will find strength.",
+        author: "Marcus Aurelius"
+      },
+      {
+        quote: "It is not that we have a short time to live, but that we waste much of it.",
+        author: "Seneca"
+      },
+      {
+        quote: "Man is disturbed not by things, but by the views he takes of them.",
+        author: "Epictetus"
+      },
+      {
+        quote: "The best revenge is not to be like your enemy.",
+        author: "Marcus Aurelius"
+      },
+      {
+        quote: "We suffer more often in imagination than in reality.",
+        author: "Seneca"
+      }
+    ];
+
+    function newQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const currentQuote = quotes[randomIndex];
+      document.getElementById('quote').innerText = `"${currentQuote.quote}"`;
+      document.getElementById('author').innerText = `- ${currentQuote.author}`;
+    }
+
+    // Initialize the widget with a random quote on page load
+    newQuote();
+  </script>
+</body>
+</html>
